@@ -1,0 +1,8 @@
+services:
+  web:
+    build:
+      context: .
+    container_name: jenkins-compose-demo
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
