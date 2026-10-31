@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('github pull') {
+            steps {
+                git branch: 'main', url:'https://github.com/iamsiddharth2210/jenkins-docker-compose-Demo-.git'
+            }
+        }
+    stage('docker run') {
+        steps {
+            sh 'docker compose down'
+            sh 'docker compose up -d --build'
+        }
+    }
+    }
+}
